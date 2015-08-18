@@ -66,7 +66,7 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals(text, testJournalArticle.getText());
 		
 		//Boolean value
-		assertEquals(true, testJournalArticle.getMyMagicBoolean().booleanValue());
+		assertTrue(testJournalArticle.getMyMagicBoolean().booleanValue());
 		
 		//Date value
 		assertEquals(new Date(1438732800000l), testJournalArticle.getDate());
@@ -121,7 +121,7 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals(text, testJournalArticle.getText());
 		
 		//Boolean value
-		assertEquals(false, testJournalArticle.getMyMagicBoolean().booleanValue());
+		assertFalse(testJournalArticle.getMyMagicBoolean().booleanValue());
 	}
 	
 	/**
@@ -143,7 +143,7 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals(text, testJournalArticle.getText());
 		
 		//Boolean value
-		assertEquals(true, testJournalArticle.getMyMagicBoolean().booleanValue());
+		assertTrue(testJournalArticle.getMyMagicBoolean().booleanValue());
 		
 		//Date value
 		assertEquals(new Date(1438732800000l), testJournalArticle.getDate());
@@ -193,7 +193,7 @@ public class JournalArticleConverterTest extends TestCase {
 		nestedTestJournalArticle.fromJournalArticle(article);
 		DocumentsAndMediaJournalArticle nestedJournalArticle = nestedTestJournalArticle.getDocumentsAndMedia();
 		//Nested value
-		assertEquals(true, nestedJournalArticle.getMyBoolean().booleanValue());
+		assertTrue(nestedJournalArticle.getMyBoolean().booleanValue());
 		assertEquals("Nested Text :)", nestedJournalArticle.getMyText());
 	}
 	
