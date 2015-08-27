@@ -1,4 +1,5 @@
 # liferay-journal-article-converter
+[![Build Status](https://travis-ci.org/DavidePastore/liferay-journal-article-converter.svg?branch=master)](https://travis-ci.org/DavidePastore/liferay-journal-article-converter)
 
 This project converts a Liferay Journal Article to a Custom Java Object.
 
