@@ -1,5 +1,6 @@
 # liferay-journal-article-converter
 [![Build Status](https://travis-ci.org/DavidePastore/liferay-journal-article-converter.svg?branch=master)](https://travis-ci.org/DavidePastore/liferay-journal-article-converter)
+[![Coverage Status](https://coveralls.io/repos/github/DavidePastore/liferay-journal-article-converter/badge.svg?branch=master)](https://coveralls.io/github/DavidePastore/liferay-journal-article-converter?branch=master)
 
 This project converts a Liferay Journal Article to a Custom Java Object.
 
