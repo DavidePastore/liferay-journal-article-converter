@@ -17,7 +17,7 @@ import com.github.davidepastore.liferay.annotation.JournalArticleField;
 import com.github.davidepastore.liferay.util.SimpleLocaleUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalArticle;
 
 /**
  * The Convertible Journal Article class that contains the methods to convert a {@link JournalArticle}

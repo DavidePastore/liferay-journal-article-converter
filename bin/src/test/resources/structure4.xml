@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="baseLevelBoolean" type="boolean" index-type="keyword" index="0">
+		<dynamic-element name="nestedLevelDecimal" index="0" type="ddm-decimal" index-type="keyword">
+			<dynamic-element name="doubleNestedSelect" index="0" type="list" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[value 3]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[10.023]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[true]]></dynamic-content>
+	</dynamic-element>
+</root>

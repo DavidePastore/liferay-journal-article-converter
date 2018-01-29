@@ -12,25 +12,29 @@ import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import com.github.davidepastore.liferay.util.SimpleLocaleUtil;
-import com.liferay.portal.LocaleException;
+import com.liferay.portal.kernel.exception.LocaleException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
-import com.liferay.portal.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.model.BaseModel;
-import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.portlet.expando.model.ExpandoBridge;
-import com.liferay.portlet.journal.model.JournalArticle;
-import com.liferay.portlet.journal.model.JournalArticleResource;
-import com.liferay.portlet.journal.model.JournalFolder;
-import com.liferay.portlet.trash.model.TrashEntry;
+import com.liferay.dynamic.data.mapping.model.DDMStructure;
+import com.liferay.dynamic.data.mapping.model.DDMTemplate;
+import com.liferay.expando.kernel.model.ExpandoBridge;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalArticleResource;
+import com.liferay.journal.model.JournalFolder;
+import com.liferay.exportimport.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.model.CacheModel;
 
 public class MockedJournalArticle implements JournalArticle{
 	
+	private static final long serialVersionUID = 8768627349017828838L;
+
 	private static Log log = LogFactoryUtil.getLog(MockedJournalArticle.class);
 	
 	private String content;
@@ -555,11 +559,6 @@ public class MockedJournalArticle implements JournalArticle{
 		
 	}
 
-	public TrashEntry getTrashEntry() throws PortalException, SystemException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public long getTrashEntryClassPK() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -689,25 +688,9 @@ public class MockedJournalArticle implements JournalArticle{
 		return getDefaultLocale();
 	}
 
-	public void prepareLocalizedFieldsForImport() throws LocaleException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
-			throws LocaleException {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public int compareTo(JournalArticle journalArticle) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	public CacheModel<JournalArticle> toCacheModel() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public JournalArticle toEscapedModel() {
@@ -858,4 +841,124 @@ public class MockedJournalArticle implements JournalArticle{
 		
 	}
 
+	public boolean isInTrashExplicitly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isInTrashImplicitly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isEntityCacheEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isFinderCacheEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public long getArticleImageId(String arg0, String arg1, String arg2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public DDMStructure getDDMStructure() throws PortalException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public DDMTemplate getDDMTemplate() throws PortalException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public com.liferay.portal.kernel.xml.Document getDocument() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Layout getLayout() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDefaultLanguageId(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDocument(com.liferay.portal.kernel.xml.Document arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getDDMStructureKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getDDMTemplateKey() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Date getLastPublishDate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public com.liferay.trash.kernel.model.TrashEntry getTrashEntry() throws PortalException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setDDMStructureKey(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setDDMTemplateKey(String arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setExpandoBridgeAttributes(com.liferay.portal.kernel.model.BaseModel<?> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setExpandoBridgeAttributes(com.liferay.portal.kernel.service.ServiceContext arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLastPublishDate(Date arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getArticleImageURL(com.liferay.portal.kernel.theme.ThemeDisplay arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CacheModel<JournalArticle> toCacheModel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void prepareLocalizedFieldsForImport() throws LocaleException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void prepareLocalizedFieldsForImport(Locale arg0)
+			throws LocaleException {
+		// TODO Auto-generated method stub
+		
+	}
 }
