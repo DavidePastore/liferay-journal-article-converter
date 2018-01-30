@@ -35,6 +35,7 @@ public class MockedJournalArticle implements JournalArticle{
 	
 	private static final long serialVersionUID = 8768627349017828838L;
 
+	@SuppressWarnings("unused")
 	private static Log log = LogFactoryUtil.getLog(MockedJournalArticle.class);
 	
 	private String content;

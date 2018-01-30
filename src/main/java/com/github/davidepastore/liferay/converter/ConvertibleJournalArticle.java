@@ -154,21 +154,41 @@ public abstract class ConvertibleJournalArticle {
 		} else if(type.equals("boolean")){
 			value = Boolean.parseBoolean(stringValue);
 		} else if(type.equals("ddm-date")){
-			value = new Date(Long.parseLong(stringValue));
+			try{
+				value = new Date(Long.parseLong(stringValue));
+			} catch (NumberFormatException e) {
+				
+			}
 		} else if(type.equals("ddm-decimal")){
-			value = new Double(stringValue);
+			try{
+				value = new Double(stringValue);
+			} catch (NumberFormatException e) {
+				
+			}
 		} else if(type.equals("image")){
 			value = stringValue;
 		} else if(type.equals("document_library")){
 			value = stringValue;
 		} else if(type.equals("ddm-integer")){
-			value = Integer.parseInt(stringValue);
+			try{
+				value = Integer.parseInt(stringValue);
+			} catch (NumberFormatException e) {
+				
+			}
 		} else if(type.equals("link_to_layout")){
 			value = stringValue;
 		} else if(type.equals("ddm-number")){
-			value = new BigDecimal(stringValue);
+			try{
+				value = new BigDecimal(stringValue);
+			} catch (NumberFormatException e) {
+				
+			}
 		} else if(type.equals("radio")){
-			value = stringValue.substring(2, stringValue.length() - 2);
+			try{
+				value = stringValue.substring(2, stringValue.length() - 2);
+			} catch (IndexOutOfBoundsException e) {
+				
+			}
 		} else if(type.equals("list")){
 			Elements options = element.select("dynamic-content option");
 			if(options.isEmpty()){

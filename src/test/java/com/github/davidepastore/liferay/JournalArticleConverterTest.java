@@ -31,6 +31,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
  */
 public class JournalArticleConverterTest extends TestCase {
 	
+	@SuppressWarnings("unused")
 	private static Log log = LogFactoryUtil.getLog(JournalArticleConverterTest.class);
 	
 	/**
