@@ -204,6 +204,8 @@ public abstract class ConvertibleJournalArticle {
 			}
 		} else if(type.equals("text_box")){
 			value = stringValue;
+		} else if(type.equals("text_area")){
+			value = stringValue;
 		}
 		
 		return value;
