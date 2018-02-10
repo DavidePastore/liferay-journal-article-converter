@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US,ca_ES" default-locale="en_US">
+	<dynamic-element name="text" type="text" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[English]]></dynamic-content>
+		<dynamic-content language-id="ca_ES"><![CDATA[Catalan]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="aBoolean" type="boolean" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[true]]></dynamic-content>
+		<dynamic-content language-id="ca_ES"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="date" type="ddm-date" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[1438732800000]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="decimal" type="ddm-decimal" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[32.0]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US" id="22207">/image/journal/article?img_id=22202&amp;t=1439380567193</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="documentsAndMedia" type="document_library" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[/documents/20281/0/welcome_tools/ab4b08a2-a1ba-4b12-acd7-21b62db8887a?t=1439123008000]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="integer" type="ddm-integer" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[13]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="linkToPage" type="link_to_layout" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20281]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[444]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="radio" type="radio" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[["value 1"]]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="select" type="list" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US">
+			<option><![CDATA[value 2]]></option>
+			<option><![CDATA[value 3]]></option>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="textBox" type="text_box" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[Text box]]></dynamic-content>
+	</dynamic-element>
+</root>
