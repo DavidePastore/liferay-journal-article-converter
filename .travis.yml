@@ -3,8 +3,15 @@ language: java
 jdk:
   - oraclejdk7
   - oraclejdk8
-  - openjdk6
   - openjdk7
+
+matrix:
+  include:
+    - addons:
+        apt:
+          packages:
+            - openjdk-6-jdk
+      jdk: openjdk6
 
 after_success:
   - mvn clean test jacoco:report coveralls:report
