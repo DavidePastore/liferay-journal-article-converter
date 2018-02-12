@@ -120,7 +120,7 @@ public abstract class ConvertibleJournalArticle {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException{
+	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException, NumberFormatException, IndexOutOfBoundsException {
 		Object value = null;
 		String type = element.attr("type");
 		String stringValue = element.text();
@@ -154,41 +154,21 @@ public abstract class ConvertibleJournalArticle {
 		} else if(type.equals("boolean")){
 			value = Boolean.parseBoolean(stringValue);
 		} else if(type.equals("ddm-date")){
-			try{
-				value = new Date(Long.parseLong(stringValue));
-			} catch (NumberFormatException e) {
-				
-			}
+			value = new Date(Long.parseLong(stringValue));
 		} else if(type.equals("ddm-decimal")){
-			try{
-				value = new Double(stringValue);
-			} catch (NumberFormatException e) {
-				
-			}
+			value = new Double(stringValue);
 		} else if(type.equals("image")){
 			value = stringValue;
 		} else if(type.equals("document_library")){
 			value = stringValue;
 		} else if(type.equals("ddm-integer")){
-			try{
-				value = Integer.parseInt(stringValue);
-			} catch (NumberFormatException e) {
-				
-			}
+			value = Integer.parseInt(stringValue);
 		} else if(type.equals("link_to_layout")){
 			value = stringValue;
 		} else if(type.equals("ddm-number")){
-			try{
-				value = new BigDecimal(stringValue);
-			} catch (NumberFormatException e) {
-				
-			}
+			value = new BigDecimal(stringValue);
 		} else if(type.equals("radio")){
-			try{
-				value = stringValue.substring(2, stringValue.length() - 2);
-			} catch (IndexOutOfBoundsException e) {
-				
-			}
+			value = stringValue.substring(2, stringValue.length() - 2);
 		} else if(type.equals("list")){
 			Elements options = element.select("dynamic-content option");
 			if(options.isEmpty()){
