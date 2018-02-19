@@ -42,4 +42,7 @@
 	<dynamic-element name="textBox" type="text_box" index-type="keyword" index="0">
 		<dynamic-content language-id="en_US"><![CDATA[Text box]]></dynamic-content>
 	</dynamic-element>
+	<dynamic-element name="textArea" type="text_area" index-type="keyword" index="0">
+		<dynamic-content language-id="en_US"><![CDATA[Text area]]></dynamic-content>
+	</dynamic-element>
 </root>
