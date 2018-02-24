@@ -1,7 +1,7 @@
 # liferay-journal-article-converter
-[![Build Status](https://travis-ci.org/DavidePastore/liferay-journal-article-converter.svg?branch=master)](https://travis-ci.org/DavidePastore/liferay-journal-article-converter)
-[![Coverage Status](https://coveralls.io/repos/github/DavidePastore/liferay-journal-article-converter/badge.svg?branch=master)](https://coveralls.io/github/DavidePastore/liferay-journal-article-converter?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter/badge.svg)](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter)
+[![Build Status](https://travis-ci.org/DavidePastore/liferay-journal-article-converter.svg?branch=7.x)](https://travis-ci.org/DavidePastore/liferay-journal-article-converter?branch=7.x)
+[![Coverage Status](https://coveralls.io/repos/github/DavidePastore/liferay-journal-article-converter/badge.svg?branch=7.x)](https://coveralls.io/github/DavidePastore/liferay-journal-article-converter?branch=7.x)
+[![Known Vulnerabilities](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter/7.x/badge.svg)](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter/7.x)
 
 This project converts a Liferay Journal Article to a Custom Java Object.
 
