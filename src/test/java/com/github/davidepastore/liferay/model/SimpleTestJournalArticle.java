@@ -47,6 +47,9 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 
 	@JournalArticleField(name = "textBox")
 	private String textBox;
+	
+	@JournalArticleField(name = "textArea")
+	private String textArea;
 
 	public String getTitle() {
 		return title;
@@ -150,6 +153,14 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 
 	public void setTextBox(String textBox) {
 		this.textBox = textBox;
+	}
+
+	public String getTextArea() {
+		return textArea;
+	}
+
+	public void setTextArea(String textArea) {
+		this.textArea = textArea;
 	}
 
 }

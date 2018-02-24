@@ -17,7 +17,7 @@ import com.github.davidepastore.liferay.annotation.JournalArticleField;
 import com.github.davidepastore.liferay.util.SimpleLocaleUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalArticle;
 
 /**
  * The Convertible Journal Article class that contains the methods to convert a {@link JournalArticle}
@@ -120,7 +120,7 @@ public abstract class ConvertibleJournalArticle {
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
 	 */
-	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException{
+	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException, NumberFormatException, IndexOutOfBoundsException {
 		Object value = null;
 		String type = element.attr("type");
 		String stringValue = element.text();
@@ -183,6 +183,8 @@ public abstract class ConvertibleJournalArticle {
 				value = list;
 			}
 		} else if(type.equals("text_box")){
+			value = stringValue;
+		} else if(type.equals("text_area")){
 			value = stringValue;
 		}
 		

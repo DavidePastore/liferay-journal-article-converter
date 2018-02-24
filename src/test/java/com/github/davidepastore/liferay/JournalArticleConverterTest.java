@@ -31,6 +31,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
  */
 public class JournalArticleConverterTest extends TestCase {
 	
+	@SuppressWarnings("unused")
 	private static Log log = LogFactoryUtil.getLog(JournalArticleConverterTest.class);
 	
 	/**
@@ -98,6 +99,9 @@ public class JournalArticleConverterTest extends TestCase {
 		
 		//Text Box value
 		assertEquals("Text box", testJournalArticle.getTextBox());
+		
+		//Text Area value
+		assertEquals("Text area", testJournalArticle.getTextArea());
 	}
 
 	/**
@@ -179,6 +183,9 @@ public class JournalArticleConverterTest extends TestCase {
 		
 		//Text Box value
 		assertEquals("Text box", testJournalArticle.getTextBox());
+		
+		//Text Area value
+		assertEquals("Text area", testJournalArticle.getTextArea());
 	}
 	
 	/**

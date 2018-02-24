@@ -11,7 +11,7 @@
 	<url>https://github.com/DavidePastore/liferay-journal-article-converter</url>
 
 	<properties>
-		<liferay.version>6.2.1</liferay.version>
+		<liferay.version>7.0.0-nightly</liferay.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -178,6 +178,26 @@
 			<version>1.8.3</version>
 		</dependency>
 
+		<dependency>
+		    <groupId>com.liferay</groupId>
+		    <artifactId>com.liferay.journal.api</artifactId>
+		    <version>2.12.4</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.liferay.portal</groupId>
+		    <artifactId>com.liferay.portal.kernel</artifactId>
+		    <version>2.61.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.liferay</groupId>
+		    <artifactId>com.liferay.dynamic.data.mapping.api</artifactId>
+		    <version>3.7.3</version>
+		    <scope>provided</scope>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
