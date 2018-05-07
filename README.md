@@ -19,7 +19,7 @@ If you use Maven to manage the dependencies in your Java project (and you should
   <!-- Liferay Journal Article Converter library -->
   <groupId>com.github.davidepastore</groupId>
   <artifactId>liferay-journal-article-converter</artifactId>
-  <version>0.1.0</version>
+  <version>7.0.0</version>
 </dependency>
 ```
 
