@@ -74,6 +74,10 @@ public abstract class ConvertibleJournalArticle {
 			int size = elementsWithName.size();
 			boolean isList = isListInObject(name, object) || size > 1;
 			for (Element element : elementsWithName) {
+				String type = element.attr("type");
+				if(type.equals("list")){
+					isList = false;
+				}
 				value = getObjectValue(element, object, title);
 				boolean setValue = true;
 				if(isList){
