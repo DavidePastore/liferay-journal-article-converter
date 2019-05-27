@@ -51,7 +51,7 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 	@JournalArticleField(name = "textArea")
 	private String textArea;
 
-	@JournalArticleField(name = "geolocation")
+	@JournalArticleField(name = "geolocalizzazione")
 	private String geolocation;
 
 	public String getTitle() {
