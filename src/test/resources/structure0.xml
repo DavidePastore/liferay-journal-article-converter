@@ -46,6 +46,6 @@
 		<dynamic-content language-id="en_US"><![CDATA[Text area]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="geolocalizzazione" type="ddm-geolocation" index-type="keyword">
-		<dynamic-content language-id="en_US"><![CDATA[{"latitude":43.685737015768,"longitude":10.428374208929}]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[{"latitude":43.89193,"longitude":12.51133}]]></dynamic-content>
 	</dynamic-element>
 </root>

@@ -197,7 +197,7 @@ public abstract class ConvertibleJournalArticle {
 		return value;
 	}
 
-		/**
+	/**
 	 * Get the linked {@link Field} with this class.
 	 * @param name The name of the field.
 	 * @param clazz The {@link Class} to use.
@@ -290,7 +290,7 @@ public abstract class ConvertibleJournalArticle {
 		return names;
 	}
 
-		/**
+	/**
 	 * Check if the name of {@link Element} is a type of {@link List} in the given object
 	 * @param name of the element
 	 * @param object The object on which set the value.

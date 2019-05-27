@@ -30,10 +30,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
  * Unit test for {@link ConvertibleJournalArticle}.
  */
 public class JournalArticleConverterTest extends TestCase {
-	
+
 	@SuppressWarnings("unused")
 	private static Log log = LogFactoryUtil.getLog(JournalArticleConverterTest.class);
-	
+
 	/**
 	 * Create the test case
 	 *
@@ -50,10 +50,10 @@ public class JournalArticleConverterTest extends TestCase {
 	public static Test suite() {
 		return new TestSuite(JournalArticleConverterTest.class);
 	}
-	
+
 	/**
 	 * Test with a simple journal article structure.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleSimple() throws Exception {
 		String content = getFileContent("structure0.xml");
@@ -62,51 +62,54 @@ public class JournalArticleConverterTest extends TestCase {
 		SimpleTestJournalArticle testJournalArticle = new SimpleTestJournalArticle();
 		testJournalArticle.fromJournalArticle(article);
 		String text = "English";
-		
+
 		//String value
 		assertEquals(text, testJournalArticle.getText());
-		
+
 		//Boolean value
 		assertTrue(testJournalArticle.getMyMagicBoolean().booleanValue());
-		
+
 		//Date value
 		assertEquals(new Date(1438732800000l), testJournalArticle.getDate());
-		
+
 		//Decimal value
 		assertEquals(new Double(32.0), testJournalArticle.getDecimal());
-		
+
 		//Image value
 		String image = "/image/journal/article?img_id=22202&t=1439380567193";
 		assertEquals(image, testJournalArticle.getImage());
-		
+
 		//Integer value
 		assertEquals(new Integer(13), testJournalArticle.getInteger());
-		
+
 		//Link to layout value
 		assertEquals("1@public@20281", testJournalArticle.getLinkToPage());
-		
+
 		//Number value
 		assertEquals(new BigDecimal(444), testJournalArticle.getNumber());
-		
+
 		//Radio value
 		assertEquals("value 1", testJournalArticle.getRadio());
-		
+
 		//List value
 		List<String> list = new ArrayList<String>();
 		list.add("value 2");
 		list.add("value 3");
 		assertEquals(list, testJournalArticle.getSelect());
-		
+
 		//Text Box value
 		assertEquals("Text box", testJournalArticle.getTextBox());
-		
+
 		//Text Area value
 		assertEquals("Text area", testJournalArticle.getTextArea());
+
+		// Geolocation
+		assertEquals("{\"latitude\":43.89193,\"longitude\":12.51133}", testJournalArticle.getGeolocation());
 	}
 
 	/**
 	 * Test fromJournalArticle method for catalan.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleForCatalan() throws Exception {
 		String content = getFileContent("structure1.xml");
@@ -120,17 +123,17 @@ public class JournalArticleConverterTest extends TestCase {
 		text.add("Catalan");
 		text.add("null");
 		text.add("null");
-		
+
 		//List of String
 		assertEquals(text, testJournalArticle.getText());
-		
+
 		//Boolean value
 		assertFalse(testJournalArticle.getMyMagicBoolean().booleanValue());
 	}
-	
+
 	/**
 	 * Test fromJournalArticle method for default language.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleForDefaultLanguage() throws Exception {
 		String content = getFileContent("structure1.xml");
@@ -142,55 +145,55 @@ public class JournalArticleConverterTest extends TestCase {
 		text.add("English");
 		text.add("Second text");
 		text.add("Third text");
-		
+
 		//List of String
 		assertEquals(text, testJournalArticle.getText());
-		
+
 		//Boolean value
 		assertTrue(testJournalArticle.getMyMagicBoolean().booleanValue());
-		
+
 		//Date value
 		assertEquals(new Date(1438732800000l), testJournalArticle.getDate());
-		
+
 		//Decimal value
 		assertEquals(new Double(32.0), testJournalArticle.getDecimal());
-		
+
 		//Image value
 		String image = "/image/journal/article?img_id=22202&t=1439380567193";
 		assertEquals(image, testJournalArticle.getImage());
-		
+
 		//Documents and media value
 		String documentsAndMedia = "/documents/20281/0/welcome_tools/ab4b08a2-a1ba-4b12-acd7-21b62db8887a?t=1439123008000";
 		assertEquals(documentsAndMedia, testJournalArticle.getDocumentsAndMedia());
-		
+
 		//Integer value
 		assertEquals(new Integer(13), testJournalArticle.getInteger());
-		
+
 		//Link to layout value
 		assertEquals("1@public@20281", testJournalArticle.getLinkToPage());
-		
+
 		//Number value
 		assertEquals(new BigDecimal(444), testJournalArticle.getNumber());
-		
+
 		//Radio value
 		assertEquals("value 1", testJournalArticle.getRadio());
-		
+
 		//List value
 		List<String> list = new ArrayList<String>();
 		list.add("value 2");
 		list.add("value 3");
 		assertEquals(list, testJournalArticle.getSelect());
-		
+
 		//Text Box value
 		assertEquals("Text box", testJournalArticle.getTextBox());
-		
+
 		//Text Area value
 		assertEquals("Text area", testJournalArticle.getTextArea());
 	}
-	
+
 	/**
 	 * Test fromJournalArticle method for nested elements.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleForNestedElements() throws Exception {
 		String content = getFileContent("structure2.xml");
@@ -203,10 +206,10 @@ public class JournalArticleConverterTest extends TestCase {
 		assertTrue(nestedJournalArticle.getMyBoolean().booleanValue());
 		assertEquals("Nested Text :)", nestedJournalArticle.getMyText());
 	}
-	
+
 	/**
 	 * Test fromJournalArticle method for multi level nested elements.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleForMultiLevelNestedElements() throws Exception {
 		String content = getFileContent("structure4.xml");
@@ -214,7 +217,7 @@ public class JournalArticleConverterTest extends TestCase {
 		article.setContent(content);
 		MultiNestedTestFirstLevelJournalArticle nestedTestJournalArticle = new MultiNestedTestFirstLevelJournalArticle();
 		nestedTestJournalArticle.fromJournalArticle(article);
-		
+
 		//Mock data
 		MultiNestedTestFirstLevelJournalArticle firstLevelJournalArticle = new MultiNestedTestFirstLevelJournalArticle();
 		MultiNestedTestSecondLevelJournalArticle secondLevelJournalArticle = new MultiNestedTestSecondLevelJournalArticle();
@@ -224,14 +227,14 @@ public class JournalArticleConverterTest extends TestCase {
 		secondLevelJournalArticle.setNestedLevelDecimal(thirdLevelJournalArticle);
 		secondLevelJournalArticle.setMyBoolean(true);
 		firstLevelJournalArticle.setBaseLevelBoolean(secondLevelJournalArticle);
-		
+
 		//Multi nested value
 		assertEquals(nestedTestJournalArticle, firstLevelJournalArticle);
 	}
-	
+
 	/**
 	 * Test fromJournalArticle method for list of nested elements.
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void testFromJournalArticleForListOfNestedElements() throws Exception {
 		String content = getFileContent("structure3.xml");
@@ -240,32 +243,32 @@ public class JournalArticleConverterTest extends TestCase {
 		NestedListTestJournalArticle nestedListTestJournalArticle = new NestedListTestJournalArticle();
 		nestedListTestJournalArticle.fromJournalArticle(article);
 		List<DocumentsAndMediaJournalArticle> documentsAndMediaList = new ArrayList<DocumentsAndMediaJournalArticle>();
-		
+
 		//Add first
 		DocumentsAndMediaJournalArticle documentsAndMedia = new DocumentsAndMediaJournalArticle();
 		documentsAndMedia.setMyBoolean(true);
 		documentsAndMedia.setMyText("Text 1");
 		documentsAndMedia.setDocumentsAndMedia("/documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123090000");
 		documentsAndMediaList.add(documentsAndMedia);
-		
+
 		//Add second
 		documentsAndMedia = new DocumentsAndMediaJournalArticle();
 		documentsAndMedia.setMyBoolean(false);
 		documentsAndMedia.setMyText("Text 2");
 		documentsAndMedia.setDocumentsAndMedia("/documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123092344");
 		documentsAndMediaList.add(documentsAndMedia);
-		
+
 		List<DocumentsAndMediaJournalArticle> myDocumentAndMediaList = nestedListTestJournalArticle.getDocumentsAndMedia();
-		
+
 		//Nested value
 		assertEquals(documentsAndMediaList, myDocumentAndMediaList);
 	}
-	
+
 	/**
 	 * Read the file content.
 	 * @param name The file name.
 	 * @return Returns the {@link File} instance.
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	private String getFileContent(String name) throws IOException{
 		ClassLoader classLoader = getClass().getClassLoader();
