@@ -27,9 +27,9 @@ import com.liferay.journal.model.JournalArticle;
  *
  */
 public abstract class ConvertibleJournalArticle {
-	
+
 	private static Log log = LogFactoryUtil.getLog(ConvertibleJournalArticle.class);
-	
+
 	/**
 	 * Create the object from the given {@link JournalArticle} instance.
 	 * @param journalArticle The {@link JournalArticle} instance.
@@ -38,7 +38,7 @@ public abstract class ConvertibleJournalArticle {
 	public void fromJournalArticle(JournalArticle journalArticle) throws Exception{
 		fromJournalArticle(journalArticle, SimpleLocaleUtil.buildLocale(journalArticle.getDefaultLanguageId()));
 	}
-	
+
 	/**
 	 * Create the object from the given {@link JournalArticle} and {@link Locale}.
 	 * @param journalArticle The {@link JournalArticle} instance.
@@ -54,15 +54,15 @@ public abstract class ConvertibleJournalArticle {
 		setValueFromElements(elements, this, journalArticle.getTitle(locale));
 		log.debug("Object: " + this);
 	}
-	
+
 	/**
 	 * Set value from the {@link Elements} instance.
 	 * @param elements The {@link Elements} on which search the value.
 	 * @param object The object on which set the fields.
 	 * @param title The title.
-	 * @throws IllegalAccessException 
-	 * @throws IllegalArgumentException 
-	 * @throws InstantiationException 
+	 * @throws IllegalAccessException
+	 * @throws IllegalArgumentException
+	 * @throws InstantiationException
 	 */
 	protected void setValueFromElements(Elements elements, Object object, String title) throws IllegalArgumentException, IllegalAccessException, InstantiationException{
 		List<String> names = getDynamicElementNames(elements);
@@ -72,8 +72,12 @@ public abstract class ConvertibleJournalArticle {
 			List<Object> listValue = new ArrayList<Object>();
 			int counter = 0;
 			int size = elementsWithName.size();
-			boolean isList = size > 1;
+			boolean isList = isListInObject(name, object) || size > 1;
 			for (Element element : elementsWithName) {
+				String type = element.attr("type");
+				if(type.equals("list")){
+					isList = false;
+				}
 				value = getObjectValue(element, object, title);
 				boolean setValue = true;
 				if(isList){
@@ -86,7 +90,7 @@ public abstract class ConvertibleJournalArticle {
 						setValue = false;
 					}
 				}
-				
+
 				if(setValue){
 					List<Field> linkedFields = getLinkedFields(name, object.getClass());
 					for (Field linkedField : linkedFields) {
@@ -94,13 +98,13 @@ public abstract class ConvertibleJournalArticle {
 						linkedField.set(object, value);
 					}
 				}
-				
+
 				List<Field> titleFields = getTitleFields();
 				for (Field titleField : titleFields) {
 					titleField.setAccessible(true);
 					titleField.set(object, title);
 				}
-				
+
 				List<Field> baseFields = getBaseFields(object.getClass());
 				for (Field baseField : baseFields) {
 					baseField.setAccessible(true);
@@ -110,7 +114,7 @@ public abstract class ConvertibleJournalArticle {
 			}
 		}
 	}
-	
+
 	/**
 	 * Get the object value of the given {@link Element}.
 	 * @param element The {@link Element} that contains the XML structure (dynamic-element or dynamic-content).
@@ -128,7 +132,7 @@ public abstract class ConvertibleJournalArticle {
 		if(element.tagName().equals("dynamic-content")){
 			type = element.parent().attr("type");
 		}
-		
+
 		Elements nestedElements = element.children().select("dynamic-element");
 		if(!nestedElements.isEmpty()){
 			//Handle nested type
@@ -186,11 +190,34 @@ public abstract class ConvertibleJournalArticle {
 			value = stringValue;
 		} else if(type.equals("text_area")){
 			value = stringValue;
+		} else if(type.equals("ddm-geolocation")) {
+			value = stringValue;
 		}
-		
+
 		return value;
 	}
-	
+
+	/**
+	 * Get the linked {@link Field} with this class.
+	 * @param name The name of the field.
+	 * @param clazz The {@link Class} to use.
+	 * @return Returns the linked {@link Field}.
+	 *
+	 * @author Christian Palombella
+	 */
+	protected Field getLinkedField(String name, Class<?> clazz) {
+		for (Field field : clazz.getDeclaredFields()) {
+			if (field.isAnnotationPresent(JournalArticleField.class)) {
+				JournalArticleField annotation = field.getAnnotation(JournalArticleField.class);
+				String fieldName = annotation.name();
+				if(name.equals(fieldName)){
+					return field;
+				}
+			}
+		}
+		return null;
+	}
+
 	/**
 	 * Get the {@link List} of linked {@link Field} with this class.
 	 * @param name The name of the field.
@@ -210,7 +237,7 @@ public abstract class ConvertibleJournalArticle {
 		}
 		return fields;
 	}
-	
+
 	/**
 	 * Get the {@link List} of {@link Field} that contains the title.
 	 * @return Returns the {@link List} of {@link Field} that contains the title.
@@ -227,7 +254,7 @@ public abstract class ConvertibleJournalArticle {
 		}
 		return fields;
 	}
-	
+
 	/**
 	 * Get the {@link List} of {@link Field} that should be associated with the base value.
 	 * @param clazz The {@link Class} to use.
@@ -245,8 +272,8 @@ public abstract class ConvertibleJournalArticle {
 		}
 		return fields;
 	}
-	
-	
+
+
 	/**
 	 * Get a {@link List} of all the dynamic element.
 	 * @param elements The {@link Elements}.
@@ -257,10 +284,35 @@ public abstract class ConvertibleJournalArticle {
 		for (Element element : elements) {
 			String name = element.attr("name");
 			if(!names.contains(name)){
-				names.add(name);				
+				names.add(name);
 			}
 		}
 		return names;
 	}
-	
+
+	/**
+	 * Check if the name of {@link Element} is a type of {@link List} in the given object
+	 * @param name of the element
+	 * @param object The object on which set the value.
+	 * @return boolean
+	 *
+	 * @author Christian Palombella
+	 */
+	protected boolean isListInObject(String name, Object object)  {
+
+		Field field = getLinkedField(name, object.getClass());
+
+		if(field != null) {
+			field.setAccessible(true);
+			Class<?> clazzType = field.getType();
+			log.debug("clazzType: " + clazzType);
+			if(clazzType.getName().equals("java.util.List")){
+				log.debug("This seems a list!");
+
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

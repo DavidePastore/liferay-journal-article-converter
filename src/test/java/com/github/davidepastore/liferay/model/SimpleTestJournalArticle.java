@@ -47,9 +47,12 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 
 	@JournalArticleField(name = "textBox")
 	private String textBox;
-	
+
 	@JournalArticleField(name = "textArea")
 	private String textArea;
+
+	@JournalArticleField(name = "geolocalizzazione")
+	private String geolocation;
 
 	public String getTitle() {
 		return title;
@@ -161,6 +164,14 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 
 	public void setTextArea(String textArea) {
 		this.textArea = textArea;
+	}
+
+	public String getGeolocation() {
+		return geolocation;
+	}
+
+	public void setGeolocation(String geolocation) {
+		this.geolocation = geolocation;
 	}
 
 }
