@@ -19,7 +19,7 @@ If you use Maven to manage the dependencies in your Java project (and you should
   <!-- Liferay Journal Article Converter library -->
   <groupId>com.github.davidepastore</groupId>
   <artifactId>liferay-journal-article-converter</artifactId>
-  <version>7.0.0</version>
+  <version>7.1.0</version>
 </dependency>
 ```
 
@@ -194,7 +194,7 @@ XML structure:
 		<dynamic-element name="nestedText" index="0" type="text" index-type="keyword">
 			<dynamic-content language-id="en_US"><![CDATA[Nested Text :)]]></dynamic-content>
 		</dynamic-element>
-		<dynamic-content language-id="en_US"><![CDATA[/documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123090000]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[{"classPK":"46245","groupId":"20127","title":"Footer.png","type":"document","uuid":"223fac3c-abe2-e24a-1097-31cd1ce030156"}]]></dynamic-content>
 	</dynamic-element>
 </root>
 ```
@@ -251,17 +251,17 @@ public class NestedBar extends ConvertibleJournalArticle {
 		this.myText = myText;
 	}
 
-	public String getDocumentsAndMedia() {
+	public DDMDocumentAndMedia getDocumentsAndMedia() {
 		return documentsAndMedia;
 	}
 
-	public void setDocumentsAndMedia(String documentsAndMedia) {
+	public void setDocumentsAndMedia(DDMDocumentAndMedia documentsAndMedia) {
 		this.documentsAndMedia = documentsAndMedia;
 	}
 	
 	@Override
 	public String toString() {
-		return "[myBoolean = " + myBoolean + ", myText = " + myText + ", documentsAndMedia = " + documentsAndMedia + "]";
+		return "[myBoolean = " + myBoolean + ", myText = " + myText + "]";
 	}
 }
 ```
@@ -274,7 +274,7 @@ JournalArticle journalArticle = JournalArticleLocalServiceUtil.getArticle(id);
 NestedFoo nestedFoo = new NestedFoo();
 nestedFoo.fromJournalArticle(journalArticle);
 NestedBar nestedBar = nestedFoo.getNestedBar();
-System.out.println(nestedBar); //[myBoolean = true, myText = Nested Text :), documentsAndMedia = /documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123090000]
+System.out.println(nestedBar); //[myBoolean = true, myText = Nested Text :)]
 ```
 
 
