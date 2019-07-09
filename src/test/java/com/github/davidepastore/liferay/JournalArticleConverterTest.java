@@ -15,6 +15,7 @@ import junit.framework.TestSuite;
 import org.apache.commons.io.IOUtils;
 
 import com.github.davidepastore.liferay.converter.ConvertibleJournalArticle;
+import com.github.davidepastore.liferay.model.DDMDocumentAndMedia;
 import com.github.davidepastore.liferay.model.DocumentsAndMediaJournalArticle;
 import com.github.davidepastore.liferay.model.MultiNestedTestFirstLevelJournalArticle;
 import com.github.davidepastore.liferay.model.MultiNestedTestSecondLevelJournalArticle;
@@ -76,8 +77,20 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals(new Double(32.0), testJournalArticle.getDecimal());
 
 		//Image value
-		String image = "/image/journal/article?img_id=22202&t=1439380567193";
-		assertEquals(image, testJournalArticle.getImage());
+		assertNotNull(testJournalArticle.getImage());
+		assertEquals("46245", testJournalArticle.getImage().getClassPK());
+		assertEquals("20127", testJournalArticle.getImage().getGroupId());
+		assertEquals("Header.png", testJournalArticle.getImage().getTitle());
+		assertEquals("document", testJournalArticle.getImage().getType());
+		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030155", testJournalArticle.getImage().getUuid());
+
+		//Documents and media value
+		assertNotNull(testJournalArticle.getDocumentsAndMedia());
+		assertEquals("46245", testJournalArticle.getDocumentsAndMedia().getClassPK());
+		assertEquals("20127", testJournalArticle.getDocumentsAndMedia().getGroupId());
+		assertEquals("Footer.png", testJournalArticle.getDocumentsAndMedia().getTitle());
+		assertEquals("document", testJournalArticle.getDocumentsAndMedia().getType());
+		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030156", testJournalArticle.getDocumentsAndMedia().getUuid());
 
 		//Integer value
 		assertEquals(new Integer(13), testJournalArticle.getInteger());
@@ -104,7 +117,9 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals("Text area", testJournalArticle.getTextArea());
 
 		// Geolocation
-		assertEquals("{\"latitude\":43.89193,\"longitude\":12.51133}", testJournalArticle.getGeolocation());
+		assertNotNull(testJournalArticle.getGeolocation());
+		assertEquals(43.89193, testJournalArticle.getGeolocation().getLatitude());
+		assertEquals(12.51133, testJournalArticle.getGeolocation().getLongitude());
 	}
 
 	/**
@@ -159,12 +174,20 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals(new Double(32.0), testJournalArticle.getDecimal());
 
 		//Image value
-		String image = "/image/journal/article?img_id=22202&t=1439380567193";
-		assertEquals(image, testJournalArticle.getImage());
+		assertNotNull(testJournalArticle.getImage());
+		assertEquals("46245", testJournalArticle.getImage().getClassPK());
+		assertEquals("20127", testJournalArticle.getImage().getGroupId());
+		assertEquals("Header.png", testJournalArticle.getImage().getTitle());
+		assertEquals("document", testJournalArticle.getImage().getType());
+		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030155", testJournalArticle.getImage().getUuid());
 
 		//Documents and media value
-		String documentsAndMedia = "/documents/20281/0/welcome_tools/ab4b08a2-a1ba-4b12-acd7-21b62db8887a?t=1439123008000";
-		assertEquals(documentsAndMedia, testJournalArticle.getDocumentsAndMedia());
+		assertNotNull(testJournalArticle.getDocumentsAndMedia());
+		assertEquals("46245", testJournalArticle.getDocumentsAndMedia().getClassPK());
+		assertEquals("20127", testJournalArticle.getDocumentsAndMedia().getGroupId());
+		assertEquals("Footer.png", testJournalArticle.getDocumentsAndMedia().getTitle());
+		assertEquals("document", testJournalArticle.getDocumentsAndMedia().getType());
+		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030156", testJournalArticle.getDocumentsAndMedia().getUuid());
 
 		//Integer value
 		assertEquals(new Integer(13), testJournalArticle.getInteger());
@@ -244,18 +267,25 @@ public class JournalArticleConverterTest extends TestCase {
 		nestedListTestJournalArticle.fromJournalArticle(article);
 		List<DocumentsAndMediaJournalArticle> documentsAndMediaList = new ArrayList<DocumentsAndMediaJournalArticle>();
 
+		DDMDocumentAndMedia ddmDocumentAndMedia = new DDMDocumentAndMedia();
+		ddmDocumentAndMedia.setClassPK("46245");
+		ddmDocumentAndMedia.setGroupId("20127");
+		ddmDocumentAndMedia.setTitle("Footer.png");
+		ddmDocumentAndMedia.setType("document");
+		ddmDocumentAndMedia.setUuid("223fac3c-abe2-e24a-1097-31cd1ce030156");
+		
 		//Add first
 		DocumentsAndMediaJournalArticle documentsAndMedia = new DocumentsAndMediaJournalArticle();
 		documentsAndMedia.setMyBoolean(true);
 		documentsAndMedia.setMyText("Text 1");
-		documentsAndMedia.setDocumentsAndMedia("/documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123090000");
+		documentsAndMedia.setDocumentsAndMedia(ddmDocumentAndMedia);
 		documentsAndMediaList.add(documentsAndMedia);
 
 		//Add second
 		documentsAndMedia = new DocumentsAndMediaJournalArticle();
 		documentsAndMedia.setMyBoolean(false);
 		documentsAndMedia.setMyText("Text 2");
-		documentsAndMedia.setDocumentsAndMedia("/documents/20281/0/welcome_community/d83a745d-8624-44c0-baad-3c7d05e3b2dc?t=1439123092344");
+		documentsAndMedia.setDocumentsAndMedia(ddmDocumentAndMedia);
 		documentsAndMediaList.add(documentsAndMedia);
 
 		List<DocumentsAndMediaJournalArticle> myDocumentAndMediaList = nestedListTestJournalArticle.getDocumentsAndMedia();

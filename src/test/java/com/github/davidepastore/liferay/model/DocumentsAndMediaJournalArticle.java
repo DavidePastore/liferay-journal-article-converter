@@ -12,7 +12,7 @@ public class DocumentsAndMediaJournalArticle extends ConvertibleJournalArticle {
 	private String myText;
 
 	@JournalArticleField(base = true)
-	private String documentsAndMedia;
+	private DDMDocumentAndMedia documentsAndMedia;
 
 	public Boolean getMyBoolean() {
 		return myBoolean;
@@ -30,11 +30,11 @@ public class DocumentsAndMediaJournalArticle extends ConvertibleJournalArticle {
 		this.myText = myText;
 	}
 
-	public String getDocumentsAndMedia() {
+	public DDMDocumentAndMedia getDocumentsAndMedia() {
 		return documentsAndMedia;
 	}
 
-	public void setDocumentsAndMedia(String documentsAndMedia) {
+	public void setDocumentsAndMedia(DDMDocumentAndMedia documentsAndMedia) {
 		this.documentsAndMedia = documentsAndMedia;
 	}
 

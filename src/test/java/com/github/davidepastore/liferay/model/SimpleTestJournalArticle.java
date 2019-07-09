@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.github.davidepastore.liferay.annotation.JournalArticleField;
 import com.github.davidepastore.liferay.converter.ConvertibleJournalArticle;
+import com.github.davidepastore.liferay.model.DDMDocumentAndMedia;
+import com.github.davidepastore.liferay.model.DDMGeolocation;
 
 public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 
@@ -28,7 +30,7 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 	private String html;
 
 	@JournalArticleField(name = "image")
-	private String image;
+	private DDMImage image;
 
 	@JournalArticleField(name = "integer")
 	private Integer integer;
@@ -52,7 +54,10 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 	private String textArea;
 
 	@JournalArticleField(name = "geolocalizzazione")
-	private String geolocation;
+	private DDMGeolocation geolocation;
+
+	@JournalArticleField(name = "documentsAndMedia")
+	private DDMDocumentAndMedia documentsAndMedia;
 
 	public String getTitle() {
 		return title;
@@ -102,11 +107,11 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 		this.html = html;
 	}
 
-	public String getImage() {
+	public DDMImage getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(DDMImage image) {
 		this.image = image;
 	}
 
@@ -166,12 +171,20 @@ public class SimpleTestJournalArticle extends ConvertibleJournalArticle {
 		this.textArea = textArea;
 	}
 
-	public String getGeolocation() {
+	public DDMGeolocation getGeolocation() {
 		return geolocation;
 	}
 
-	public void setGeolocation(String geolocation) {
+	public void setGeolocation(DDMGeolocation geolocation) {
 		this.geolocation = geolocation;
+	}
+
+	public DDMDocumentAndMedia getDocumentsAndMedia() {
+		return documentsAndMedia;
+	}
+
+	public void setDocumentsAndMedia(DDMDocumentAndMedia documentsAndMedia) {
+		this.documentsAndMedia = documentsAndMedia;
 	}
 
 }
