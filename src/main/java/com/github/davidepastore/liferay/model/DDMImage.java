@@ -1,12 +1,3 @@
-/* ====================================================================
- * Inera s.r.l.
- * Via Gaetano Malasoma, 18 - 56121 Ospedaletto Pisa (PI), Italy.
- * Email: info@inera.it
- * Tel:   (+39) (0)50 9911800
- * Fax:   (+39) (0)50 9911830
- *
- * Copyright (C) 2019.  All Rights Reserved.
- */
 package com.github.davidepastore.liferay.model;
 
 import com.liferay.portal.kernel.util.Validator;
