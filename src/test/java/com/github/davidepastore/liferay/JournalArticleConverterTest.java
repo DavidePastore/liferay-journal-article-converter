@@ -83,6 +83,10 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals("Header.png", testJournalArticle.getImage().getTitle());
 		assertEquals("document", testJournalArticle.getImage().getType());
 		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030155", testJournalArticle.getImage().getUuid());
+		assertEquals("", testJournalArticle.getImage().getName());
+		assertEquals("", testJournalArticle.getImage().getAlt());
+		assertEquals("", testJournalArticle.getImage().getFileEntryId());
+		assertEquals("", testJournalArticle.getImage().getResourcePrimKey());
 
 		//Documents and media value
 		assertNotNull(testJournalArticle.getDocumentsAndMedia());
@@ -179,7 +183,10 @@ public class JournalArticleConverterTest extends TestCase {
 		assertEquals("20127", testJournalArticle.getImage().getGroupId());
 		assertEquals("Header.png", testJournalArticle.getImage().getTitle());
 		assertEquals("document", testJournalArticle.getImage().getType());
-		assertEquals("223fac3c-abe2-e24a-1097-31cd1ce030155", testJournalArticle.getImage().getUuid());
+		assertEquals("", testJournalArticle.getImage().getName());
+		assertEquals("", testJournalArticle.getImage().getAlt());
+		assertEquals("", testJournalArticle.getImage().getFileEntryId());
+		assertEquals("", testJournalArticle.getImage().getResourcePrimKey());
 
 		//Documents and media value
 		assertNotNull(testJournalArticle.getDocumentsAndMedia());

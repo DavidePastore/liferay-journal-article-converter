@@ -14,12 +14,6 @@ public class DDMGeolocation {
 		super();
 	}
 	
-	public DDMGeolocation(Double latitude, Double longitude) {
-		super();
-		this.latitude = latitude;
-		this.longitude = longitude;
-	}
-	
 	public Double getLatitude() {
 		return latitude;
 	}

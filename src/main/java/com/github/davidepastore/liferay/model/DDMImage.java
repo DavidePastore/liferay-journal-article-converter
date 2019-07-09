@@ -20,31 +20,6 @@ public class DDMImage {
 		super();
 	}
 
-	/**
-	 * @param classPK
-	 * @param groupId
-	 * @param name
-	 * @param alt
-	 * @param title
-	 * @param type
-	 * @param uuid
-	 * @param fileEntryId
-	 * @param resourcePrimKey
-	 */
-	public DDMImage(String classPK, String groupId, String name, String alt, String title, String type, String uuid,
-			String fileEntryId, String resourcePrimKey) {
-		super();
-		this.classPK = classPK;
-		this.groupId = groupId;
-		this.name = name;
-		this.alt = alt;
-		this.title = title;
-		this.type = type;
-		this.uuid = uuid;
-		this.fileEntryId = fileEntryId;
-		this.resourcePrimKey = resourcePrimKey;
-	}
-
 	public String getClassPK() {
 		return classPK;
 	}
