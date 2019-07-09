@@ -1,7 +1,5 @@
 package com.github.davidepastore.liferay.model;
 
-import com.liferay.portal.kernel.util.Validator;
-
 /**
  * @author Christian Palombella
  *
@@ -16,22 +14,6 @@ public class DDMDocumentAndMedia {
 
 	public DDMDocumentAndMedia() {
 		super();
-	}
-
-	/**
-	 * @param classPK
-	 * @param groupId
-	 * @param title
-	 * @param type
-	 * @param uuid
-	 */
-	public DDMDocumentAndMedia(String classPK, String groupId, String title, String type, String uuid) {
-		super();
-		this.classPK = classPK;
-		this.groupId = groupId;
-		this.title = title;
-		this.type = type;
-		this.uuid = uuid;
 	}
 
 	public String getClassPK() {
@@ -74,12 +56,6 @@ public class DDMDocumentAndMedia {
 		this.uuid = uuid;
 	}
 
-	public String getUrl() {
-		if(Validator.isNotNull(this.groupId) && Validator.isNotNull(this.classPK) && Validator.isNotNull(this.title) && Validator.isNotNull(this.uuid))
-			return "/documents/" + this.groupId + "/" + this.classPK + "/" + this.title + "/" + this.uuid;
-		else return "";
-	}
-	
 	/**
 	 * Check if the object are equals.
 	 */
