@@ -233,7 +233,7 @@ public class NestedBar extends ConvertibleJournalArticle {
 	private String myText;
 
 	@JournalArticleField(base = true)
-	private String documentsAndMedia;
+	private DDMDocumentAndMedia documentsAndMedia;
 
 	public Boolean getMyBoolean() {
 		return myBoolean;
