@@ -22,7 +22,6 @@ public class JsonUtil {
 	 * @return
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
-	 * @throws FileNotFoundException
 	 */
 	public static DDMGeolocation getDDMGeolocation(String ddmGeolocationString) throws JsonSyntaxException, JsonIOException, JsonParseException {
 		Gson gson = new GsonBuilder().create();
@@ -37,7 +36,6 @@ public class JsonUtil {
 	 * @return
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
-	 * @throws FileNotFoundException
 	 */
 	public static DDMImage getDDMImage(String ddmImageString) throws JsonSyntaxException, JsonIOException, JsonParseException {
 		Gson gson = new GsonBuilder().create();
@@ -52,7 +50,6 @@ public class JsonUtil {
 	 * @return
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
-	 * @throws FileNotFoundException
 	 */
 	public static DDMDocumentAndMedia getDDMDocumentAndMedia(String ddmDocumentAndMediaString) throws JsonSyntaxException, JsonIOException, JsonParseException {
 		Gson gson = new GsonBuilder().create();
