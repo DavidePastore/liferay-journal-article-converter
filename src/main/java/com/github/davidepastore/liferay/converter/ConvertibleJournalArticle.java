@@ -316,7 +316,6 @@ public abstract class ConvertibleJournalArticle {
 	 * @author Christian Palombella
 	 */
 	protected boolean isListInObject(String name, Object object)  {
-
 		Field field = getLinkedField(name, object.getClass());
 
 		if(field != null) {
