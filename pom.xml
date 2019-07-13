@@ -43,7 +43,7 @@
 		<connection>scm:git:git@github.com:DavidePastore/liferay-journal-article-converter.git</connection>
 		<developerConnection>scm:git:git@github.com:DavidePastore/liferay-journal-article-converter.git</developerConnection>
 		<url>git@github.com:DavidePastore/liferay-journal-article-converter.git</url>
-		<tag>liferay-journal-article-converter-7.1.0</tag>
+		<tag>liferay-journal-article-converter-7.2.0</tag>
 	</scm>
 
 	<developers>
