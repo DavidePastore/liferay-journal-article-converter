@@ -17,9 +17,9 @@ import com.google.gson.reflect.TypeToken;
 public class JsonUtil {
 
 	/**
-	 *
-	 * @param ddmGeolocationString
-	 * @return
+	 * Get a DDMGeolocation instance from the given String.
+	 * @param ddmGeolocationString The String to convert into a DDMGeolocation object.
+	 * @return Returns the DDMGeolocation object.
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
 	 */
@@ -31,9 +31,9 @@ public class JsonUtil {
 	}
 
 	/**
-	 *
-	 * @param ddmImageString
-	 * @return
+	 * Get a DDMImage instance from the given String.
+	 * @param ddmImageString The String to convert into a DDMImage object.
+	 * @return Returns the DDMImage object.
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
 	 */
@@ -45,9 +45,9 @@ public class JsonUtil {
 	}
 
 	/**
-	 *
-	 * @param ddmDocumentAndMediaString
-	 * @return
+	 * Get a DDMDocumentAndMedia instance from the given String.
+	 * @param ddmDocumentAndMediaString The String to convert into a DDMDocumentAndMedia object.
+	 * @return Returns the DDMDocumentAndMedia object.
 	 * @throws JsonSyntaxException
 	 * @throws JsonIOException
 	 */
