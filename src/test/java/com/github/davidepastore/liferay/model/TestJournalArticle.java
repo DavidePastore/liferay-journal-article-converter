@@ -28,7 +28,7 @@ public class TestJournalArticle extends ConvertibleJournalArticle {
 	private String html;
 
 	@JournalArticleField(name = "image")
-	private String image;
+	private DDMImage image;
 
 	@JournalArticleField(name = "integer")
 	private Integer integer;
@@ -52,7 +52,7 @@ public class TestJournalArticle extends ConvertibleJournalArticle {
 	private String textArea;
 
 	@JournalArticleField(name = "documentsAndMedia")
-	private String documentsAndMedia;
+	private DDMDocumentAndMedia documentsAndMedia;
 
 	public String getTitle() {
 		return title;
@@ -102,11 +102,11 @@ public class TestJournalArticle extends ConvertibleJournalArticle {
 		this.html = html;
 	}
 
-	public String getImage() {
+	public DDMImage getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
+	public void setImage(DDMImage image) {
 		this.image = image;
 	}
 
@@ -166,11 +166,11 @@ public class TestJournalArticle extends ConvertibleJournalArticle {
 		this.textArea = textArea;
 	}
 
-	public String getDocumentsAndMedia() {
+	public DDMDocumentAndMedia getDocumentsAndMedia() {
 		return documentsAndMedia;
 	}
 
-	public void setDocumentsAndMedia(String documentsAndMedia) {
+	public void setDocumentsAndMedia(DDMDocumentAndMedia documentsAndMedia) {
 		this.documentsAndMedia = documentsAndMedia;
 	}
 

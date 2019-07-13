@@ -16,10 +16,10 @@
 		<dynamic-content language-id="en_US"><![CDATA[32.0]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="image" type="image" index-type="keyword" index="0">
-		<dynamic-content language-id="en_US" id="22207">/image/journal/article?img_id=22202&amp;t=1439380567193</dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[{"classPK":"46245","groupId":"20127","name":"","alt":"","title":"Header.png","type":"document","uuid":"223fac3c-abe2-e24a-1097-31cd1ce030155","fileEntryId":"","resourcePrimKey":""}]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="documentsAndMedia" type="document_library" index-type="keyword" index="0">
-		<dynamic-content language-id="en_US"><![CDATA[/documents/20281/0/welcome_tools/ab4b08a2-a1ba-4b12-acd7-21b62db8887a?t=1439123008000]]></dynamic-content>
+		<dynamic-content language-id="en_US"><![CDATA[{"classPK":"46245","groupId":"20127","title":"Footer.png","type":"document","uuid":"223fac3c-abe2-e24a-1097-31cd1ce030156"}]]></dynamic-content>
 	</dynamic-element>
 	<dynamic-element name="integer" type="ddm-integer" index-type="keyword" index="0">
 		<dynamic-content language-id="en_US"><![CDATA[13]]></dynamic-content>

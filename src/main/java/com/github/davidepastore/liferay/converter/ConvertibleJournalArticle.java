@@ -1,5 +1,6 @@
 package com.github.davidepastore.liferay.converter;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.math.BigDecimal;
@@ -14,7 +15,13 @@ import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import com.github.davidepastore.liferay.annotation.JournalArticleField;
+import com.github.davidepastore.liferay.model.DDMDocumentAndMedia;
+import com.github.davidepastore.liferay.model.DDMGeolocation;
+import com.github.davidepastore.liferay.model.DDMImage;
+import com.github.davidepastore.liferay.util.JsonUtil;
 import com.github.davidepastore.liferay.util.SimpleLocaleUtil;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.journal.model.JournalArticle;
@@ -63,8 +70,12 @@ public abstract class ConvertibleJournalArticle {
 	 * @throws IllegalAccessException
 	 * @throws IllegalArgumentException
 	 * @throws InstantiationException
+	 * @throws FileNotFoundException 
+	 * @throws IndexOutOfBoundsException 
+	 * @throws JsonIOException 
+	 * @throws JsonSyntaxException 
 	 */
-	protected void setValueFromElements(Elements elements, Object object, String title) throws IllegalArgumentException, IllegalAccessException, InstantiationException{
+	protected void setValueFromElements(Elements elements, Object object, String title) throws IllegalArgumentException, IllegalAccessException, InstantiationException, JsonSyntaxException, JsonIOException, IndexOutOfBoundsException, FileNotFoundException{
 		List<String> names = getDynamicElementNames(elements);
 		Object value = null;
 		for (String name : names) {
@@ -123,8 +134,11 @@ public abstract class ConvertibleJournalArticle {
 	 * @return Returns the object with the found value (it also handles nested properties).
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
+	 * @throws FileNotFoundException 
+	 * @throws JsonIOException 
+	 * @throws JsonSyntaxException 
 	 */
-	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException, NumberFormatException, IndexOutOfBoundsException {
+	protected Object getObjectValue(Element element, Object object, String title) throws InstantiationException, IllegalAccessException, NumberFormatException, IndexOutOfBoundsException, JsonSyntaxException, JsonIOException, FileNotFoundException {
 		Object value = null;
 		String type = element.attr("type");
 		String stringValue = element.text();
@@ -162,9 +176,11 @@ public abstract class ConvertibleJournalArticle {
 		} else if(type.equals("ddm-decimal")){
 			value = new Double(stringValue);
 		} else if(type.equals("image")){
-			value = stringValue;
+			DDMImage ddmImage = JsonUtil.getDDMImage(stringValue);
+			value = ddmImage;
 		} else if(type.equals("document_library")){
-			value = stringValue;
+			DDMDocumentAndMedia ddmDocumentAndMedia = JsonUtil.getDDMDocumentAndMedia(stringValue);
+			value = ddmDocumentAndMedia;
 		} else if(type.equals("ddm-integer")){
 			value = Integer.parseInt(stringValue);
 		} else if(type.equals("link_to_layout")){
@@ -191,7 +207,8 @@ public abstract class ConvertibleJournalArticle {
 		} else if(type.equals("text_area")){
 			value = stringValue;
 		} else if(type.equals("ddm-geolocation")) {
-			value = stringValue;
+			DDMGeolocation ddmGeolocation = JsonUtil.getDDMGeolocation(stringValue);
+			value = ddmGeolocation;
 		}
 
 		return value;
