@@ -13,6 +13,8 @@
 	<properties>
 		<liferay.version>6.2.1</liferay.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>7</maven.compiler.source>
+    	<maven.compiler.target>7</maven.compiler.target>
 	</properties>
 
 	<licenses>
