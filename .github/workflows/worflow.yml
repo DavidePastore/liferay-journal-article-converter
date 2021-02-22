@@ -1,0 +1,21 @@
+name: Continuous Integration
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        java: [ 6, 7, 8, 9, 10, 11, 12, 13 ]
+    name: Java ${{ matrix.java }} sample
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Install Maven dependencies
+        run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - name: Launch tests
+        run: mvn test -B
+      - name: Generate Coveralls report
+        run: mvn clean test jacoco:report coveralls:report
