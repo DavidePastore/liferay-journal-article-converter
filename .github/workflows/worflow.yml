@@ -3,7 +3,7 @@ name: Continuous Integration
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
