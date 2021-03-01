@@ -18,7 +18,7 @@ jobs:
       - name: Install Maven dependencies
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - name: Launch tests
-        run: mvn test -B
+        run: mvn clean test -B jacoco:report
       - name: Coveralls Parallel
         uses: coverallsapp/github-action@master
         with:
