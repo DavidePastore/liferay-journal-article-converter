@@ -1,0 +1,28 @@
+name: Continuous Integration
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        java: [ 7, 8, 9, 10, 11, 12, 13 ]
+    name: Java ${{ matrix.java }} test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Install Maven dependencies
+        run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      - name: Launch tests
+        run: mvn -B test
+      - name: Codecov Parallel
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./**/target/site/jacoco/jacoco.xml
+          name: codecov
+      - name: Upload coverage data
+        run: bash <(curl -s https://codecov.io/bash)
