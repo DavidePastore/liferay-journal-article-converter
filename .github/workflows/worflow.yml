@@ -19,19 +19,8 @@ jobs:
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - name: Launch tests
         run: mvn test -B
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@master
+      - name: Codecov Parallel
+        uses: codecov/codecov-action@v1
         with:
-          github-token: ${{ secrets.github_token }}
-          flag-name: run-java-${{ matrix.java }}
-          parallel: true
-  
-  finish:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+          file: ./**/target/site/jacoco/jacoco.xml
+          name: run-java-${{ matrix.java }}
