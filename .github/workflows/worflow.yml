@@ -24,3 +24,5 @@ jobs:
         with:
           file: ./**/target/site/jacoco/jacoco.xml
           name: codecov
+      - name: Upload coverage data
+        run: bash <(curl -s https://codecov.io/bash)
