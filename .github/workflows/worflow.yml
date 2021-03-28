@@ -18,7 +18,7 @@ jobs:
       - name: Install Maven dependencies
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
       - name: Launch tests
-        run: mvn -B test -P coverage --no-transfer-progress
+        run: mvn -B test
       - name: Codecov Parallel
         uses: codecov/codecov-action@v1
         with:
