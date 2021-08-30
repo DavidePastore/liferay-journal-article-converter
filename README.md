@@ -1,5 +1,5 @@
 # liferay-journal-article-converter
-[![Build Status](https://travis-ci.org/DavidePastore/liferay-journal-article-converter.svg?branch=master)](https://travis-ci.org/DavidePastore/liferay-journal-article-converter)
+[![Continuous Integration](https://github.com/DavidePastore/liferay-journal-article-converter/actions/workflows/worflow.yml/badge.svg)](https://github.com/DavidePastore/liferay-journal-article-converter/actions/workflows/worflow.yml)
 [![Coverage Status](https://coveralls.io/repos/github/DavidePastore/liferay-journal-article-converter/badge.svg?branch=master)](https://coveralls.io/github/DavidePastore/liferay-journal-article-converter?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter/badge.svg)](https://snyk.io/test/github/davidepastore/liferay-journal-article-converter)
 
