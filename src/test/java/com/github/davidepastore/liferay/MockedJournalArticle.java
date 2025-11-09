@@ -858,4 +858,9 @@ public class MockedJournalArticle implements JournalArticle{
 		
 	}
 
+	public boolean isInTrashExplicitly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
